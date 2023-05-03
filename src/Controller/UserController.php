@@ -29,5 +29,6 @@ class UserController
     {
 
         $userModel = new UserModel;
+        $userModel->findAll();
     }
 }
