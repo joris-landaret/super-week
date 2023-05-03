@@ -32,6 +32,7 @@ $router->map('GET', '/book/create', function () {
 }, 'book-bdd');
 
 $router->map('GET', '/users/list', function () {
+    $userController = new UserController;
 }, 'list-users');
 
 $match = $router->match();
