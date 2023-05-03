@@ -40,10 +40,11 @@ $router->map('GET', '/users/list', function () {
 }, 'list-users');
 
 $router->map('GET', '/register', function () {
-    header("Location: src/View/register.php");
+    require_once "src/View/register.php";
 }, 'register');
 
-
+$router->map('POST', '/register', function () {
+}, 'post-register');
 
 $match = $router->match();
 
