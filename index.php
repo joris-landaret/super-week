@@ -3,6 +3,8 @@
 use App\Controller\BookController;
 use App\Controller\UserController;
 
+use function PHPSTORM_META\map;
+
 require_once 'vendor/autoload.php';
 
 $router = new AltoRouter();
@@ -35,6 +37,10 @@ $router->map('GET', '/users/list', function () {
     $userController = new UserController;
     echo $userController->list();
 }, 'list-users');
+
+$router-map('GET', '/register', function ( {
+    
+}));
 
 $match = $router->match();
 
