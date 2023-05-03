@@ -10,10 +10,14 @@
 
 <body>
     <form action="" method="post">
-        <input type="email" name="email">Email
-        <input type="text" name="first_name">Prénom
-        <input type="text" name="last_name">Nom
-        <input type="password" name="password">mot de pass
+        <label for="">Email</label>
+        <input type="email" name="email">
+        <label for="">Prénom</label>
+        <input type="text" name="first_name">
+        <label for="">Nom</label>
+        <input type="text" name="last_name">
+        <label for="">Mot de pass</label>
+        <input type="password" name="password">
         <input type="submit" name="send">
     </form>
 </body>
