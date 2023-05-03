@@ -34,6 +34,7 @@ $router->map('GET', '/book/create', function () {
 $router->map('GET', '/users/list', function () {
     $userController = new UserController;
     $userController->list();
+    echo $userController->list();
 }, 'list-users');
 
 $match = $router->match();

@@ -26,6 +26,6 @@ class UserModel
         $request = $db->prepare($sql);
         $request->execute();
         $list = $request->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($list);
+        return $list;
     }
 }
