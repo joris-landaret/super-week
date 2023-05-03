@@ -24,4 +24,11 @@ class UserController
             $userModel->insertDB([$user['email'], $user['first'], $user['last'], password_hash($user['password'], PASSWORD_DEFAULT)]);
         }
     }
+
+    public function list()
+    {
+
+        $userModel = new UserModel;
+        return json_encode($userModel->findAll());
+    }
 }
