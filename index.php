@@ -2,6 +2,7 @@
 
 use App\Controller\BookController;
 use App\Controller\UserController;
+use Stripe\Terminal\Location;
 
 use function PHPSTORM_META\map;
 
@@ -38,9 +39,11 @@ $router->map('GET', '/users/list', function () {
     echo $userController->list();
 }, 'list-users');
 
-$router-map('GET', '/register', function ( {
-    
-}));
+$router->map('GET', '/register', function () {
+    header("Location: src/View/register.php");
+}, 'register');
+
+
 
 $match = $router->match();
 
