@@ -1,5 +1,6 @@
 <?php
 
+use App\Controller\AuthController;
 use App\Controller\BookController;
 use App\Controller\UserController;
 use Stripe\Terminal\Location;
@@ -44,6 +45,8 @@ $router->map('GET', '/register', function () {
 }, 'register');
 
 $router->map('POST', '/register', function () {
+    $authcontroller = new AuthController;
+    $authcontroller->register();
 }, 'post-register');
 
 $match = $router->match();
