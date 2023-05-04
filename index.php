@@ -1,7 +1,11 @@
 <?php
 
+use App\Controller\AuthController;
 use App\Controller\BookController;
 use App\Controller\UserController;
+use Stripe\Terminal\Location;
+
+use function PHPSTORM_META\map;
 
 require_once 'vendor/autoload.php';
 
@@ -35,6 +39,15 @@ $router->map('GET', '/users/list', function () {
     $userController = new UserController;
     echo $userController->list();
 }, 'list-users');
+
+$router->map('GET', '/register', function () {
+    require_once "src/View/register.php";
+}, 'register');
+
+$router->map('POST', '/register', function () {
+    $authController = new AuthController();
+    $authController->register(...$_POST);
+}, 'post-register');
 
 $match = $router->match();
 
