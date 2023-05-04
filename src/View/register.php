@@ -18,7 +18,7 @@
         <input type="text" name="last_name">
         <label for="">Mot de pass</label>
         <input type="password" name="password">
-        <input type="submit" name="send">
+        <input type="submit" value="S'inscrire">
     </form>
 </body>
 

@@ -45,8 +45,8 @@ $router->map('GET', '/register', function () {
 }, 'register');
 
 $router->map('POST', '/register', function () {
-    $authcontroller = new AuthController;
-    $authcontroller->register();
+    $authController = new AuthController();
+    $authController->register(...$_POST);
 }, 'post-register');
 
 $match = $router->match();
