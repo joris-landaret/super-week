@@ -11,7 +11,7 @@
 <body>
     <form action="" method="post">
         <label for="">Email</label>
-        <input type="email">
+        <input type="email" name="email">
         <label for="">Mot de pass</label>
         <input type="password" name="password">
         <input type="submit" value="Se connecter">

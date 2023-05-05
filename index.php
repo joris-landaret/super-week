@@ -7,6 +7,8 @@ use Stripe\Terminal\Location;
 
 use function PHPSTORM_META\map;
 
+session_start();
+
 require_once 'vendor/autoload.php';
 
 $router = new AltoRouter();

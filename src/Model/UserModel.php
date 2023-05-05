@@ -41,4 +41,15 @@ class UserModel
 
         return $request->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function tableUser()
+    {
+        $db = new PDO('mysql:host=localhost;dbname=super-week;charset=utf8;port=3307', 'root', '');
+        $sql = 'SELECT * FROM user';
+
+        $request = $db->prepare($sql);
+        $request->execute();
+
+        return $request->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
