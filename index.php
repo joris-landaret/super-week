@@ -49,6 +49,15 @@ $router->map('POST', '/register', function () {
     $authController->register(...$_POST);
 }, 'post-register');
 
+$router->map('GET', '/login', function () {
+    require_once "src/View/login.php";
+}, 'login');
+
+$router->map('POST', '/login', function () {
+    $authController = new AuthController();
+    $authController->login(...$_POST);
+}, 'post-login');
+
 $match = $router->match();
 
 if (is_array($match) && is_callable($match['target'])) {
