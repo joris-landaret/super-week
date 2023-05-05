@@ -28,4 +28,32 @@ class AuthController
             echo "ERREUR";
         }
     }
+
+    public function login($email, $password)
+    {
+        $userModel = new UserModel;
+
+        $email = htmlspecialchars(trim($email));
+        $password = htmlspecialchars(trim($password));
+
+        if ($email && $password) {
+
+            $users = $userModel->tableUser();
+            //var_dump($users);
+
+            foreach ($users as $user) {
+                //var_dump($user);
+                if ($email === $user['email'] && $password === $user['password']) {
+                    echo "oui";
+                    $_SESSION['email'] = $user['email'];
+                    $_SESSION['id'] = $user['id'];
+                    $_SESSION['first_name'] = $user['first_name'];
+                    $_SESSION['last_name'] = $user['last_name'];
+                    header("location: /");
+                } else {
+                    echo 'non';
+                }
+            }
+        }
+    }
 }

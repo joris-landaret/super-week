@@ -7,6 +7,8 @@ use Stripe\Terminal\Location;
 
 use function PHPSTORM_META\map;
 
+session_start();
+
 require_once 'vendor/autoload.php';
 
 $router = new AltoRouter();
@@ -48,6 +50,15 @@ $router->map('POST', '/register', function () {
     $authController = new AuthController();
     $authController->register(...$_POST);
 }, 'post-register');
+
+$router->map('GET', '/login', function () {
+    require_once "src/View/login.php";
+}, 'login');
+
+$router->map('POST', '/login', function () {
+    $authController = new AuthController();
+    $authController->login(...$_POST);
+}, 'post-login');
 
 $match = $router->match();
 
