@@ -17,6 +17,9 @@ $router = new AltoRouter();
 
 $router->map('GET', '/', function () {
     echo 'Bienvenu sur l\'accueil';
+    if ($_SESSION['email']) {
+        echo ' ' . $_SESSION['first_name'];
+    }
 }, 'home');
 
 $router->map('GET', '/users', function () {
