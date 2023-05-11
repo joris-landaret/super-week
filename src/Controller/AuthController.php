@@ -56,4 +56,11 @@ class AuthController
             }
         }
     }
+
+    public function displayUser($id)
+    {
+        $userModel = new UserModel;
+
+        return json_encode($userModel->findUser(['id' => $id]));
+    }
 }

@@ -27,7 +27,8 @@ $router->map('GET', '/users', function () {
 }, 'users');
 
 $router->map('GET', '/users/[i:id]', function ($id) {
-    echo 'Bienvenu sur la page de l\'utilisateur ' . $id;
+    $authController = new AuthController();
+    echo $authController->displayUser($id);
 }, 'id-users');
 
 $router->map('GET', '/users/create', function () {
