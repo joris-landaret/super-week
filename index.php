@@ -41,6 +41,10 @@ $router->map('GET', '/book/create', function () {
     $bookController->fillDB();
 }, 'book-bdd');
 
+$router->map('GET', '/book/write', function () {
+    require_once "src/View/write.php";
+}, 'book-form');
+
 $router->map('GET', '/users/list', function () {
     $userController = new UserController;
     echo $userController->list();
