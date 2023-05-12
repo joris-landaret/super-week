@@ -11,9 +11,10 @@
 <body>
     <form action="" method="post">
         <label for="">Titre</label>
-        <input type="text">
+        <input type="text" name="title">
         <label for="">Contenue</label>
         <textarea name="content" id="" cols="30" rows="10"></textarea>
+        <input type="submit">
     </form>
 
 </body>

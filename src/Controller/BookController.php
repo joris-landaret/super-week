@@ -22,7 +22,30 @@ class BookController
         ];
 
         foreach ($array2 as $book) {
-            $bookModel->insertDB($book['title'], $book['content'], $book['id_user']);
+            $bookModel->insertDB([$book['title'], $book['content'], $book['id_user']]);
         }
+    }
+
+    public function write($title, $content)
+    {
+        $bookModel = new BookModel();
+
+        if ($title && $content) {
+
+            $title = htmlspecialchars(trim($title));
+            $content = htmlspecialchars(trim($content));
+
+            $id = $_SESSION['id'];
+
+            $bookModel->insertDB([$title, $content, $id]);
+        } else {
+            echo "ERREUR";
+        }
+    }
+
+    public function list()
+    {
+        $bookModel = new BookModel;
+        return json_encode($bookModel->findAll());
     }
 }

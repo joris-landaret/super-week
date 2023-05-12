@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\UserModel;
+use App\Model\BookModel;
 
 class AuthController
 {
@@ -62,5 +63,12 @@ class AuthController
         $userModel = new UserModel;
 
         return json_encode($userModel->findUser(['id' => $id]));
+    }
+
+    public function displayBook($id)
+    {
+        $bookModel = new BookModel;
+
+        return json_encode($bookModel->findbook(['id' => $id]));
     }
 }

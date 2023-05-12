@@ -36,14 +36,29 @@ $router->map('GET', '/users/create', function () {
     $userController->fillDB();
 }, 'users-bdd');
 
-$router->map('GET', '/book/create', function () {
+$router->map('GET', '/books', function () {
+    $bookController = new BookController;
+    echo $bookController->list();
+}, 'book-list');
+
+$router->map('GET', '/books/[i:id]', function ($id) {
+    $authController = new AuthController();
+    echo $authController->displayBook($id);
+}, 'book-id');
+
+$router->map('GET', '/books/create', function () {
     $bookController = new BookController;
     $bookController->fillDB();
 }, 'book-bdd');
 
-$router->map('GET', '/book/write', function () {
+$router->map('GET', '/books/write', function () {
     require_once "src/View/write.php";
 }, 'book-form');
+
+$router->map('POST', '/books/write', function () {
+    $bookController = new BookController;
+    $bookController->write(...$_POST);
+}, 'book-write');
 
 $router->map('GET', '/users/list', function () {
     $userController = new UserController;
