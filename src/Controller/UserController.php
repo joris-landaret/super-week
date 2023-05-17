@@ -31,4 +31,16 @@ class UserController
         $userModel = new UserModel;
         return json_encode($userModel->findAll());
     }
+
+    public function logout()
+    {
+        unset(
+            $_SESSION['email'],
+            $_SESSION['id'],
+            $_SESSION['first_name'],
+            $_SESSION['last_name']
+        );
+
+        header("location: /login");
+    }
 }

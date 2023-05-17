@@ -83,6 +83,10 @@ $router->map('POST', '/login', function () {
     $authController->login(...$_POST);
 }, 'post-login');
 
+$router->map('GET', '/logout', function () {
+    require_once "src/View/login.php";
+}, 'logout');
+
 $match = $router->match();
 
 if (is_array($match) && is_callable($match['target'])) {
