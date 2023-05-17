@@ -84,7 +84,8 @@ $router->map('POST', '/login', function () {
 }, 'post-login');
 
 $router->map('GET', '/logout', function () {
-    require_once "src/View/login.php";
+    $userController = new UserController;
+    $userController->logout();
 }, 'logout');
 
 $match = $router->match();
