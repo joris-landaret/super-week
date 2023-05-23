@@ -48,7 +48,7 @@ class UserModel
         $sql = 'SELECT * FROM user';
 
         $request = $db->prepare($sql);
-        $request->execute();
+        $request->execute([]);
 
         return $request->fetchAll(PDO::FETCH_ASSOC);
     }

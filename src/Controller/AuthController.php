@@ -44,7 +44,7 @@ class AuthController
 
             foreach ($users as $user) {
                 //var_dump($user);
-                if ($email === $user['email'] && $password === $user['password']) {
+                if ($email === $user['email'] && password_verify($password, $user['password'])) {
                     echo "oui";
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['id'] = $user['id'];

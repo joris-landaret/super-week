@@ -29,7 +29,7 @@ class UserController
     {
 
         $userModel = new UserModel;
-        return json_encode($userModel->findAll());
+        echo json_encode($userModel->findAll());
     }
 
     public function logout()
