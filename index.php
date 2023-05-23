@@ -17,13 +17,15 @@ $router = new AltoRouter();
 
 $router->map('GET', '/', function () {
     echo 'Bienvenu sur l\'accueil';
-    if ($_SESSION['email']) {
+    if (isset($_SESSION['email'])) {
         echo ' ' . $_SESSION['first_name'];
     }
+    require_once "src/View/home.html";
 }, 'home');
 
 $router->map('GET', '/users', function () {
-    echo 'Bienvenu sur la liste des Utilisateurs.';
+    $userController = new UserController;
+    $userController->list();
 }, 'users');
 
 $router->map('GET', '/users/[i:id]', function ($id) {
@@ -59,11 +61,6 @@ $router->map('POST', '/books/write', function () {
     $bookController = new BookController;
     $bookController->write(...$_POST);
 }, 'book-write');
-
-$router->map('GET', '/users/list', function () {
-    $userController = new UserController;
-    echo $userController->list();
-}, 'list-users');
 
 $router->map('GET', '/register', function () {
     require_once "src/View/register.php";
